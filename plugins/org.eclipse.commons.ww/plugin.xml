@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="splashExtension" name="Splash Extensions" schema="schema/splashExtension.exsd"/>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            name="Workspace Wizard"
+            icon="platform:/plugin/org.eclipse.ui.intro/icons/welcome16.gif"
+            category="org.eclipse.ui"
+            class="org.eclipse.commons.ww.views.WorkspaceWizardView"
+            id="org.eclipse.commons.ww.views.WorkspaceWizardView">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup
+            class="org.eclipse.commons.ww.Startup">
+      </startup>
+   </extension>
+   <extension
+         point="org.eclipse.ui.splashHandlers">
+      <splashHandler
+            class="org.eclipse.commons.ww.splashHandlers.ExtensibleSplashHandler"
+            id="org.eclipse.commons.ww.splashHandlers.extensible">
+      </splashHandler>
+      <splashHandlerProductBinding
+            productId="org.eclipse.sdk.ide"
+            splashId="org.eclipse.commons.ww.splashHandlers.extensible">
+      </splashHandlerProductBinding>
+   </extension>
+   <extension
+         point="org.eclipse.commons.ww.splashExtension">
+      <splashExtension
+            icon="images/hackathon.png"
+            id="hackathon"
+            tooltip="Join the Hackathon!">
+      </splashExtension>
+   </extension>
+
+</plugin>

@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Workspace Wizard
+Bundle-SymbolicName: org.eclipse.commons.ww;singleton:=true
+Bundle-Version: 0.7.0.qualifier
+Bundle-Activator: org.eclipse.commons.ww.Activator
+Bundle-Vendor: The Eclipse Foundation
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.epp.mpc.ui;bundle-version="[1.4.0,2.0.0)",
+ org.eclipse.equinox.registry,
+ org.eclipse.swt,
+ org.eclipse.jface,
+ org.eclipse.ui.workbench
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy

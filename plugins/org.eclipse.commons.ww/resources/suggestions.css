@@ -1,0 +1,23 @@
+.suggestion {
+	float: left;
+	max-width: 200px;
+}
+
+.suggestion h3 {
+	font-size: 12pt;
+}
+
+.suggestion p {
+	font-size: 10pt;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	max-width: 200px;
+}
+
+.footer img {
+	width: 100%;
+}
