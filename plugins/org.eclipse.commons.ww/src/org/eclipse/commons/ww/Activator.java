@@ -24,6 +24,8 @@ public class Activator extends AbstractUIPlugin {
 
 	// The shared instance
 	private static Activator plugin;
+
+	private BundleContext context;
 	
 	/**
 	 * The constructor
@@ -36,6 +38,7 @@ public class Activator extends AbstractUIPlugin {
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
 	 */
 	public void start(BundleContext context) throws Exception {
+		this.context = context;
 		super.start(context);
 		plugin = this;
 	}
@@ -67,5 +70,9 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public static ImageDescriptor getImageDescriptor(String path) {
 		return imageDescriptorFromPlugin(PLUGIN_ID, path);
+	}
+
+	public static BundleContext getContext() {
+		return plugin.context;
 	}
 }

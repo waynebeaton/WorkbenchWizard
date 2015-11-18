@@ -18,6 +18,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.swt.SWT;
@@ -50,28 +51,24 @@ public class WorkspaceWizardView extends ViewPart {
 			
 			@Override
 			public void changing(LocationEvent event) {
-				// TODO Not even close.
 				event.doit = false;
-				URI uri = null;
-				try {
-					uri = new URI(event.location);
+				java.util.regex.Pattern pattern = java.util.regex.Pattern.compile("doit:([0-9]+)/([0-9]+)");
+				java.util.regex.Matcher matcher = pattern.matcher(event.location);
+				if (matcher.matches()) {				
+					final int suggestion = Integer.parseInt(matcher.group(1));
+					final int command = Integer.parseInt(matcher.group(2));
 					
-				} catch (URISyntaxException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					// FIXME Maybe a workspace job. Or do we need a job?
+					browser.getDisplay().asyncExec(new Runnable() {
+						
+						@Override
+						public void run() {						
+							suggestions.get(suggestion).doit(command);
+						}
+					});
+				} else {
+					// TODO Open workspace browser
 				}
-				
-				final int suggestion = Integer.parseInt(uri.getPath());
-				final int command = Integer.parseInt(uri.getQuery());
-				
-				// FIXME Maybe a workspace job. Or do we need a job?
-				browser.getDisplay().asyncExec(new Runnable() {
-					
-					@Override
-					public void run() {						
-						suggestions.get(suggestion).doit(command);
-					}
-				});
 			}
 			
 			@Override
@@ -103,7 +100,7 @@ public class WorkspaceWizardView extends ViewPart {
 			
 			int commandIndex = 0;
 			for(String command : suggestion.getCommandStrings()) {
-				builder.append(String.format("<a href=\"doit:%2$d#%3$d\">%1s</a>", 
+				builder.append(String.format("<a href=\"doit:%2$d/%3$d\">%1s</a>", 
 						command, suggestionIndex, commandIndex++));
 			}
 			builder.append("</p></div>");
