@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: National Language Wizard
+Bundle-SymbolicName: org.eclipse.ww.nls;singleton:=true
+Bundle-Version: 0.7.0.qualifier
+Bundle-Activator: org.eclipse.ww.nls.Activator
+Bundle-Vendor: The Eclipse Foundation
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.ui.intro,
+ org.eclipse.ui.intro.universal
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.equinox.p2.core,
+ org.eclipse.equinox.p2.metadata;version="2.1.0",
+ org.eclipse.equinox.p2.operations;version="2.0.0",
+ org.eclipse.equinox.p2.query;version="2.0.0",
+ org.eclipse.equinox.p2.repository.metadata;version="2.0.0",
+ org.eclipse.equinox.p2.ui;version="2.0.0"

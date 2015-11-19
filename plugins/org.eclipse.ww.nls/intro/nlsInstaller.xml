@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<introContent>
+  	<extensionContent id="nlsInstaller-introExtension" style="css/nlsInstaller.css" name="NLS Installer" path="overview/@">
+		<group style-id="content-group" id="nlsInstaller-introLink-group">
+       		<link label="Eclipse in Your Language" url="http://org.eclipse.ui.intro/runAction?pluginId=org.eclipse.ww.nls&amp;class=org.eclipse.ww.nls.intro.NlsIntro" id="nlsInstaller-introLink" style-id="content-link">
+          		<text>Get translations to run Eclipse in your language!</text>
+       		</link>
+       	</group>
+  	</extensionContent>
+</introContent>
